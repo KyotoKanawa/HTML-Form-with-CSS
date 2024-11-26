@@ -18,12 +18,18 @@
         // Get stored data from localStorage
         const data = JSON.parse(localStorage.getItem('formData'));
 
-        // Display data
-        document.getElementById('name').textContent = data.name;
-        document.getElementById('email').textContent = data.email;
-        document.getElementById('age').textContent = data.age;
-        document.getElementById('gender').textContent = data.gender;
-        document.getElementById('comments').textContent = data.comments;
+        // Check if data exists
+        if (data) {
+            // Display data
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('age').textContent = data.age;
+            document.getElementById('gender').textContent = data.gender;
+            document.getElementById('comments').textContent = data.comments;
+        } else {
+            // Handle case where no data is found
+            document.body.innerHTML = '<p>No form data found. Please go back and submit the form.</p><a href="index.html">Back to Form</a>';
+        }
     </script>
 </body>
 </html>
